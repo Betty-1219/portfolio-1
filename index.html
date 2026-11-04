@@ -21,14 +21,16 @@
 <body>
 
     <header>
-
+        <canvas id="logo" width="120" height="120">
+        Betelhem Nurlachew logo
+    </canvas>
         <h1>Hello, I am Betelhem&nbsp;Nurlachew</h1>
 
         <img src="images/profile.png"
-             alt="Portrait of Betelhem Nurlachew"
-             title="Betelhem Nurlachew"
+        alt="Portrait of Betelhem Nurlachew"
+         title="Betelhem Nurlachew"
              width="200"
-             height="200">
+         height="200">
 
         <p>This is my portfolio website.</p>
 
@@ -82,7 +84,7 @@
             <h3>Hear my introduction</h3>
 
 <audio controls>
-    <source src="media/intro.mp3" type="audio/mpeg">
+    <source src="media/intro.mp4" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
@@ -232,74 +234,75 @@
             </ul>
                         <h3>Skill Levels</h3>
 
-            <
-<section id="skills">
-    <h2>My Technical Skills</h2>
+<p>
+    <label for="html">HTML:</label>
+    <meter id="html" min="0" max="100"
+           low="30" high="80" optimum="100" value="85">
+    </meter>
+    95%
+</p>
 
-    <p>
-        <label for="html">HTML:</label>
-        <meter id="html" min="0" max="100"
-               low="30" high="80" optimum="100" value="85">
-        </meter>
-        95%
-    </p>
+<p>
+    <label for="css">CSS:</label>
+    <meter id="css" min="0" max="100"
+           low="30" high="80" optimum="100" value="80">
+    </meter>
+    95%
+</p>
 
-    <p>
-        <label for="css">CSS:</label>
-        <meter id="css" min="0" max="100"
-               low="30" high="80" optimum="100" value="80">
-        </meter>
-        95%
-    </p>
+<p>
+    <label for="javascript">JavaScript:</label>
+    <meter id="javascript" min="0" max="100"
+           low="30" high="80" optimum="100" value="60">
+    </meter>
+    80%
+</p>
 
-    <p>
-        <label for="javascript">JavaScript:</label>
-        <meter id="javascript" min="0" max="100"
-               low="30" high="80" optimum="100" value="60">
-        </meter>
-        80%
-    </p>
+<p>
+    <label for="python">Python:</label>
+    <meter id="python" min="0" max="100"
+           low="30" high="80" optimum="100" value="55">
+    </meter>
+    90%
+</p>
 
-    <p>
-        <label for="python">Python:</label>
-        <meter id="python" min="0" max="100"
-               low="30" high="80" optimum="100" value="55">
-        </meter>
-        95%
-    </p>
+<p>
+    <label for="cpp">C++:</label>
+    <meter id="cpp" min="0" max="100"
+           low="30" high="80" optimum="100" value="45">
+    </meter>
+    95%
+</p>
 
-    <p>
-        <label for="cpp">C++:</label>
-        <meter id="cpp" min="0" max="100"
-               low="30" high="80" optimum="100" value="45">
-        </meter>
-        90%
-    </p>
+<p>
+    <label for="typescript">TypeScript:</label>
+    <meter id="typescript" min="0" max="100"
+           low="30" high="80" optimum="100" value="30">
+    </meter>
+    80%
+</p>
 
-    <p>
-        <label for="typescript">TypeScript:</label>
-        <meter id="typescript" min="0" max="100"
-               low="30" high="80" optimum="100" value="30">
-        </meter>
-        90%
-    </p>
+<p>
+    <label for="ai">Artificial Intelligence &amp; Machine Learning:</label>
+    <meter id="ai" min="0" max="100"
+           low="30" high="80" optimum="100" value="25">
+    </meter>
+    40%
+</p>
 
-    <p>
-        <label for="ai">Artificial Intelligence & Machine Learning:</label>
-        <meter id="ai" min="0" max="100"
-               low="30" high="80" optimum="100" value="25">
-        </meter>
-        40%
-    </p>
+<p>
+    <label for="java">Java:</label>
+    <meter id="java" min="0" max="100"
+           low="30" high="80" optimum="100" value="40">
+    </meter>
+    50%
+</p>
 
-    <p>
-        <label for="java">Java:</label>
-        <meter id="java" min="0" max="100"
-               low="30" high="80" optimum="100" value="40">
-        </meter>
-        50%
-    </p>
+<h3>My Skills Bar Chart</h3>
 
+<canvas id="skillsChart" width="300" height="150">
+    Your skills bar chart
+</canvas>
 </section>
 
             
@@ -846,6 +849,54 @@
     </p>
 </footer>
 
+<script>
 
+const canvas = document.getElementById('logo');
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = "#1f5fa8";
+ctx.fillRect(0, 0, 120, 120);
+
+ctx.beginPath();
+ctx.arc(60, 60, 45, 0, 2 * Math.PI);
+ctx.fillStyle = "white";
+ctx.fill();
+
+ctx.fillStyle = "#1f5fa8";
+ctx.font = "bold 36px Arial";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText("BN", 60, 62);
+
+
+const chart = document.getElementById('skillsChart');
+const chartCtx = chart.getContext('2d');
+
+const skills = [
+    { name: 'HTML', value: 85 },
+    { name: 'CSS', value: 80 },
+    { name: 'JS', value: 60 },
+    { name: 'Python', value: 55 },
+    { name: 'C++', value: 45 },
+    { name: 'TS', value: 30 },
+    { name: 'AI/ML', value: 25 },
+    { name: 'Java', value: 40 }
+];
+
+skills.forEach((skill, index) => {
+    const barHeight = skill.value * 1.2;
+    const x = 8 + index * 36;
+    const y = 130 - barHeight;
+
+    chartCtx.fillStyle = "#2563EB";
+    chartCtx.fillRect(x, y, 24, barHeight);
+
+    chartCtx.fillStyle = "#0F172A";
+    chartCtx.font = "10px Arial";
+    chartCtx.textAlign = "center";
+    chartCtx.fillText(skill.name, x + 12, 145);
+});
+</script>
 </body>
 </html>
+
